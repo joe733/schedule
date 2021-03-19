@@ -1,3 +1,19 @@
 # schedule
 
-This is a simple application that helps students to enter right class at the right time!
+> **Sir**: 'Dhyan do na!'
+>
+> **Me**:
+>
+> **Sir**: 'Kyon late huabe?!'
+>
+> **Me**: 'Sirji, meeting link goom hogaya'
+>
+> **Sir**: 😠
+
+<center>
+
+*Aab `schedule` use karen!*
+
+*Samay par kaksha mein pahunchen!*
+
+</center>
