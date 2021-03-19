@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Schedule',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -20,9 +21,9 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.green,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Schedule'),
     );
   }
 }
@@ -77,37 +78,73 @@ class _MyHomePageState extends State<MyHomePage> {
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
+            // Column is also a layout widget. It takes a list of children and
+            // arranges them vertically. By default, it sizes itself to fit its
+            // children horizontally, and tries to be as tall as its parent.
+            //
+            // Invoke "debug painting" (press "p" in the console, choose the
+            // "Toggle Debug Paint" action from the Flutter Inspector in Android
+            // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
+            // to see the wireframe for each widget.
+            //
+            // Column has various properties to control how it sizes itself and
+            // how it positions its children. Here we use mainAxisAlignment to
+            // center the children vertically; the main axis here is the vertical
+            // axis because Columns are vertical (the cross axis would be
+            // horizontal).
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    //General Row
+                    myButtons(Icons.add_to_drive, 'Drive',
+                        'https://drive.google.com/drive/folders/1oOzkR6gugx8ZtgM6SSqTDz8xpMav_v8U'),
+                    SizedBox(width: 10),
+                    myButtons(Icons.mail_rounded, 'Mail',
+                        'mailto:iesbtechcs2k17to21@googlegroups.com'),
+                    SizedBox(width: 10),
+                  ]),
+            ]),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+}
+
+class myButtons extends StatelessWidget {
+  final IconData iconName;
+  final String btnName, appID;
+  myButtons(this.iconName, this.btnName, this.appID);
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    // throw UnimplementedError();
+    return ElevatedButton(
+      onPressed: () {
+        AppLauncher(appID).launchURL();
+      },
+      child: Column(
+        children: <Widget>[
+          IconButton(
+            onPressed: null,
+            disabledColor: Colors.white,
+            icon: Icon(iconName),
+          ),
+          Text('$btnName'),
+          SizedBox(
+            height: 5,
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class AppLauncher {
+  final String appURL;
+  AppLauncher(this.appURL);
+
+  void launchURL() async =>
+      await canLaunch(appURL) ? await launch(appURL) : throw 'Could not launch';
 }
