@@ -96,8 +96,6 @@ class myButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    // throw UnimplementedError();
     return ElevatedButton(
       onPressed: () {
         AppLauncher(appID).launchURL();

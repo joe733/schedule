@@ -10,10 +10,6 @@
 >
 > **Sir**: 😠
 
-<center>
-
 *Aab `schedule` use karen!*
 
 *Samay par kaksha mein pahunchen!*
-
-</center>
