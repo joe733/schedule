@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 void main() {
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Schedule',
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.deepPurple,
       ),
       home: MyHomePage(title: 'Schedule'),
     );
@@ -29,9 +30,16 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      //color set to transperent or set your own color
+      statusBarIconBrightness: Brightness.dark,
+      //set brightness for icons, like dark background light icons
+    ));
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        brightness: Brightness.dark,
       ),
       body: Center(
         child: Column(
