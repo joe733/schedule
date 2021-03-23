@@ -4,10 +4,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-void main() async {
-  //WidgetsFlutterBinding.ensureInitialized();
-  //final savedThemeMode = await AdaptiveTheme.getThemeMode();
-  //runApp(MyApp(savedThemeMode: savedThemeMode));
+void main() {
   runApp(MyApp());
 }
 
