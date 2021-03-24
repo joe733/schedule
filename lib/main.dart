@@ -81,57 +81,60 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       body: Center(
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                'S8 CSE',
-                style: Theme.of(context).textTheme.headline4,
-              ),
-              SizedBox(height: 50),
-              Row(
-                  //General Row
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    MyButtons(Icons.add_to_drive, 'Drive',
-                        'https://drive.google.com/drive/folders/1oOzkR6gugx8ZtgM6SSqTDz8xpMav_v8U'),
-                    SizedBox(width: 10),
-                    MyButtons(Icons.mail_rounded, 'Mail',
-                        'mailto:iesbtechcs2k17to21@googlegroups.com'),
-                    SizedBox(width: 10),
-                  ]),
-              SizedBox(height: 20),
-              Row(
-                  //Row 1
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    MyButtons(Icons.meeting_room_rounded, 'EIA',
-                        'https://meet.google.com/ecd-obdy-zgd'),
-                    SizedBox(width: 10),
-                    MyButtons(Icons.meeting_room_rounded, 'DMW',
-                        'https://meet.google.com/jce-fwot-zqb'),
-                    SizedBox(width: 10),
-                    MyButtons(Icons.meeting_room_rounded, 'ES',
-                        'https://meet.google.com/yja-kdxa-ixc'),
-                    SizedBox(width: 10),
-                  ]),
-              SizedBox(height: 20),
-              Row(
-                  //Row 2
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    MyButtons(Icons.meeting_room_rounded, 'AI',
-                        'https://meet.google.com/erc-dsjk-iez'),
-                    SizedBox(width: 10),
-                    MyButtons(Icons.meeting_room_rounded, 'PIS',
-                        'https://meet.google.com/cao-gkxq-mox'),
-                    SizedBox(width: 10),
-                    MyButtons(Icons.meeting_room_rounded, 'Project',
-                        'https://meet.google.com/yzg-ccdf-qdm'),
-                    SizedBox(width: 10),
-                  ])
-            ]),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+        child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'S8 CSE',
+                  style: Theme.of(context).textTheme.headline4,
+                ),
+                SizedBox(height: 50),
+                Row(
+                    //General Row
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      MyButtons(Icons.add_to_drive, 'Drive',
+                          'https://drive.google.com/drive/folders/1oOzkR6gugx8ZtgM6SSqTDz8xpMav_v8U'),
+                      SizedBox(width: 10),
+                      MyButtons(Icons.mail_rounded, 'Mail',
+                          'mailto:iesbtechcs2k17to21@googlegroups.com'),
+                      SizedBox(width: 10),
+                    ]),
+                SizedBox(height: 20),
+                Row(
+                    //Row 1
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      MyButtons(Icons.meeting_room_rounded, 'EIA',
+                          'https://meet.google.com/ecd-obdy-zgd'),
+                      SizedBox(width: 10),
+                      MyButtons(Icons.meeting_room_rounded, 'DMW',
+                          'https://meet.google.com/jce-fwot-zqb'),
+                      SizedBox(width: 10),
+                      MyButtons(Icons.meeting_room_rounded, 'ES',
+                          'https://meet.google.com/yja-kdxa-ixc'),
+                      SizedBox(width: 10),
+                    ]),
+                SizedBox(height: 20),
+                Row(
+                    //Row 2
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      MyButtons(Icons.meeting_room_rounded, 'AI',
+                          'https://meet.google.com/erc-dsjk-iez'),
+                      SizedBox(width: 10),
+                      MyButtons(Icons.meeting_room_rounded, 'PIS',
+                          'https://meet.google.com/cao-gkxq-mox'),
+                      SizedBox(width: 10),
+                      MyButtons(Icons.meeting_room_rounded, 'Project',
+                          'https://meet.google.com/yzg-ccdf-qdm'),
+                      SizedBox(width: 10),
+                    ])
+              ]),
+        ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }
