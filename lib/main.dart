@@ -1,8 +1,12 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'contents/time_table.dart';
 
 void main() {
   runApp(MyApp());
@@ -66,8 +70,8 @@ class _MyHomePageState extends State<MyHomePage> {
           IconButton(
             splashColor: Colors.transparent,
             icon: isDark
-                ? Icon(Icons.radio_button_off_rounded)
-                : Icon(Icons.radio_button_on_rounded),
+                ? Icon(FontAwesomeIcons.lightbulb)
+                : Icon(FontAwesomeIcons.solidLightbulb),
             onPressed: () {
               setState(() {
                 isDark
@@ -86,11 +90,24 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                SizedBox(height: 20),
                 Text(
                   'S8 CSE',
-                  style: Theme.of(context).textTheme.headline4,
+                  style: Theme.of(context).textTheme.headline2,
                 ),
-                SizedBox(height: 50),
+                SizedBox(height: 30),
+                Text(
+                  'Time Table',
+                  style: Theme.of(context).textTheme.headline6,
+                ),
+                SizedBox(height: 30),
+                TimeTable(),
+                SizedBox(height: 30),
+                Text(
+                  'Links',
+                  style: Theme.of(context).textTheme.headline6,
+                ),
+                SizedBox(height: 30),
                 Row(
                     //General Row
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -131,7 +148,37 @@ class _MyHomePageState extends State<MyHomePage> {
                       MyButtons(Icons.meeting_room_rounded, 'Project',
                           'https://meet.google.com/yzg-ccdf-qdm'),
                       SizedBox(width: 10),
-                    ])
+                    ]),
+                SizedBox(height: 60),
+                RichText(
+                  text: TextSpan(
+                    style: Theme.of(context).textTheme.caption,
+                    children: [
+                      TextSpan(
+                        text: 'Made with 💙 by',
+                        style: Theme.of(context).textTheme.caption,
+                      ),
+                      TextSpan(
+                        text: ' @joe733 ',
+                        style: TextStyle(color: Theme.of(context).accentColor),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () async {
+                            var url = "https://github.com/joe733/schedule/";
+                            if (await canLaunch(url)) {
+                              await launch(url);
+                            } else {
+                              throw 'Could not launch $url';
+                            }
+                          },
+                      ),
+                      TextSpan(
+                        text: 'on GitHub',
+                        style: Theme.of(context).textTheme.caption,
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 10),
               ]),
         ), // This trailing comma makes auto-formatting nicer for build methods.
       ),
