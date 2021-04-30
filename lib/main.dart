@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
             ThemeData(brightness: Brightness.dark, primarySwatch: Colors.teal),
         initial: AdaptiveThemeMode.light,
         builder: (theme, darktheme) => MaterialApp(
+              debugShowCheckedModeBanner: false,
               title: 'Schedule',
               theme: theme,
               darkTheme: darktheme,

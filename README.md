@@ -1,4 +1,4 @@
-# schedule
+# Schedule
 
 > **Sir**: 'Dhyan do na!'
 >
@@ -10,7 +10,7 @@
 >
 > **Sir**: 😠
 
-*Aab `schedule` use karen!*
+*Aab `Schedule` use karen!*
 
 *Samay par kaksha mein pahunchen!*
 
@@ -18,16 +18,16 @@
 
 ### Prerequisites
 
-- [`Flutter`](https://flutter.dev/)
-- [`Java`](https://www.java.com/en/)
 - [`adb`](https://developer.android.com/studio/command-line/adb)
+- [`Flutter`](https://flutter.dev/)
+- [`Java 11+`](https://www.java.com/en/)
 
 ## Steps
 
 Clone the repo:
 
 ```bash
-git https://github.com/joe733/schedule.git
+git clone https://github.com/joe733/schedule.git
 cd schedule
 ```
 

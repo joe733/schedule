@@ -28,6 +28,7 @@ dependencies:
   shared_preferences: ^2.0.5
   font_awesome_flutter: ^9.0.0
   flutter_launcher_icons: ^0.7.4
+  animated_theme_switcher: ^1.0.9
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
